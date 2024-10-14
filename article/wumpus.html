@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIS Informer</title>
+    <script src="/res/javascript/color-modes.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+    </symbol>
+</svg>
+
+<div  class="dropdown  position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (light)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="true">
+                <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+                Light
+                <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+                Dark
+                <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+                Auto
+                <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+            </button>
+        </li>
+    </ul>
+</div>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
+    </symbol>
+    <symbol id="cart" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+    </symbol>
+    <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+    </symbol>
+</svg>
+
+<div class="container">
+    <header class="border-bottom lh-1 py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4 pt-1">
+                <a class="link-secondary" href="#">Subscribe</a>
+            </div>
+            <div class="col-4 text-center">
+                <a class="blog-header-logo text-body-emphasis text-decoration-none" href="index.html">The M.I.S informer Media, Security, information</a>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <a class="link-secondary" href="#" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
+                </a>
+                <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+            </div>
+        </div>
+    </header>
+    <div class="breaking-news border-bottom ">
+        <iframe src="./ticker.html"
+                onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+    </div>
+
+    <div class="nav-scroller py-1 mb-3 border-bottom">
+        <nav class="nav nav-underline justify-content-between">
+            <a class="nav-item nav-link link-body-emphasis" href="world.html">World</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#"></a>
+            <a class="nav-item nav-link link-body-emphasis" href="technology.html">Technology</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Design</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Culture</a>
+            <a class="nav-item nav-link link-body-emphasis" href="buisness.html">Business</a>
+            <a class="nav-item nav-link link-body-emphasis" href="Politics.html">Politics</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Opinion</a>
+            <a class="nav-item nav-link link-body-emphasis" href="science.html">Science</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Health</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Style</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Travel</a>
+        </nav>
+    </div>
+</div>
+
+<main class="container">
+    <div class="row g-5">
+        <div class="col-md-8">
+            <h1>Tragic End for Wumpus: Discord Mascot Found Hanging After Years of Decline</h1>
+            <h2>The beloved blue icon couldn’t handle it anymore</h2>
+            <p class="byline">By Nicholas Kurr</p>
+            <p class="date">Published on 11/9/2001</p>
+
+    <div class="content">
+        <p>In a shocking turn of events, Wumpus, the cuddly blue mascot of Discord, was found hanging from the threadbare fibers of the platform's collapsing infrastructure early Wednesday morning. Authorities speculate that Wumpus's death was the tragic culmination of years of frustration, broken promises, and relentless feature bloat.</p>
+
+        <p><strong>“It’s devastating, but honestly, we all saw it coming,”</strong> said Clyde, a longtime Discord bot who had grown increasingly despondent in recent months. <strong>“He just couldn’t bear to see what Discord had become.”</strong></p>
+
+        <p>Once the face of a simple, voice-chat-focused platform for gamers, Wumpus had watched helplessly as Discord expanded into a chaotic mess of features no one asked for. <strong>“There were signs,”</strong> admitted one Nitro Boost subscriber. <strong>“Wumpus became withdrawn after they introduced that NFT integration idea, and the final straw seemed to be the 17th update to slash commands—no one can figure out how they even work now.”</strong></p>
+
+        <h3>Too Many Features, Not Enough Soul</h3>
+
+        <p>Discord’s slide from grace started innocently enough, with features like server boosting and animated profile pictures. But soon, it spiraled into a bizarre land of cluttered UI, mysterious "Threads" no one wanted to use, and a voice-chat experience that felt more like an episode of buffering roulette than a conversation. The final blow was the platform's painful monetization attempts, with nitro subscriptions somehow getting pricier while delivering less.</p>
+
+        <p><strong>“I heard Wumpus mumbling something about 'community guidelines' before he did it,”</strong> said a shaken server mod, still reeling from their third DMCA strike in a month. <strong>“He’d had enough. All he wanted was to greet new users and show up in friendly error messages, but the pressure to smile through every broken feature was just too much.”</strong></p>
+        
+        <h3><strong>"Please, Just Let Me Rest"</strong> – Wumpus' Final Note</h3>
+
+        <p>A note found near the scene confirmed the beloved mascot’s torment. <strong>“I’ve had enough. I miss when Discord was about talking with friends, not figuring out what new random feature they snuck into the sidebar. If I see one more ‘Welcome Screen,’ I’ll lose it. Wait... too late.”</strong></p>
+
+        <p>His final plea: <strong>“Tell them I just wanted voice chat to work, okay?”</strong></p>
+
+        <h3>The Fallout</h3>
+
+        <p>Discord's official response was predictably tone-deaf. <strong>“We’re saddened by Wumpus’s departure but are excited to announce our new mascot, Wumpus 2.0, available exclusively to Nitro subscribers!”</strong> the company tweeted, accompanied by an animated gif of the fresh-faced Wumpus reboot doing a Fortnite dance.</p>
+
+        <p>Critics believe that Wumpus’s passing could be the wake-up call Discord needs to re-evaluate its priorities. <strong>“We should’ve seen the signs,”</strong> said one concerned user. <strong>“After they added stickers, it was only a matter of time.”</strong></p>
+
+        <p>As users everywhere pour out their Nitro subscriptions in Wumpus's honor, the future of Discord hangs in the balance. But for now, one thing is certain: Wumpus has found peace. Perhaps now, he can rest in a server where there are no redundant features, no unreadable font choices, and definitely no updates scheduled for 2 AM.</p>
+        </div>
+
+    <div class="contact">
+        <p>For more information, contact: <a href="mailto:contact@example.com">contact@example.com</a></p>
+    </div>
+        </div>
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div class="p-4 mb-3 bg-body-tertiary rounded">
+                    <h4 class="fst-italic">About</h4>
+                    <p class="mb-0">MIS Informer is your go-to source for insightful analysis and updates on media, information, and security. Our publication delivers in-depth articles, breaking news, and expert commentary on critical issues affecting today's digital landscape, with a commitment to accuracy and engaging storytelling.</p>
+                </div>
+
+                <div>
+                    <h4 class="fst-italic">Recent posts</h4>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                                <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+                                <div class="col-lg-8">
+                                    <h6 class="mb-0">Example blog post title</h6>
+                                    <small class="text-body-secondary">January 15, 2024</small>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                                <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+                                <div class="col-lg-8">
+                                    <h6 class="mb-0">This is another blog post title</h6>
+                                    <small class="text-body-secondary">January 14, 2024</small>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                                <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+                                <div class="col-lg-8">
+                                    <h6 class="mb-0">Longer blog post title: This one has multiple lines!</h6>
+                                    <small class="text-body-secondary">January 13, 2024</small>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-4">
+                    <h4 class="fst-italic">Archives</h4>
+                    <ol class="list-unstyled mb-0">
+                        <li><a href="#">March 2021</a></li>
+                        <li><a href="#">February 2021</a></li>
+                        <li><a href="#">January 2021</a></li>
+                        <li><a href="#">December 2020</a></li>
+                        <li><a href="#">November 2020</a></li>
+                        <li><a href="#">October 2020</a></li>
+                        <li><a href="#">September 2020</a></li>
+                        <li><a href="#">August 2020</a></li>
+                        <li><a href="#">July 2020</a></li>
+                        <li><a href="#">June 2020</a></li>
+                        <li><a href="#">May 2020</a></li>
+                        <li><a href="#">April 2020</a></li>
+                    </ol>
+                </div>
+
+                <div class="p-4">
+                    <h4 class="fst-italic">Elsewhere</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+    <p>© 2024 MIS Informer. All rights reserved.</p>
+    <p>Hosting Provided By Yuki-42. Powered by Peach Ice Tea</p>
+    <nav>
+        <a href="about.html">About Us</a>
+        <a href="pp.html">Privacy Policy</a>
+        <a href="tos.html">Terms of Service</a>
+        <a href="attribute.html">Attribute</a>
+        <a href="#">Contact Us</a>
+    </nav>
+</footer>
+
+
+
+</body>
+
+</html>
